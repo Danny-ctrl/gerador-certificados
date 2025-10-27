@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { SecondaryButton } from "../secondary-button/secondary-button";
 
 @Component({
   selector: 'app-item-certificado',
-  imports: [],
+  imports: [SecondaryButton],
   templateUrl: './item-certificado.html',
   styleUrl: './item-certificado.css'
 })
