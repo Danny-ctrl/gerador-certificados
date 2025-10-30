@@ -10,6 +10,7 @@
   gap:8px;
   display: flex;
   align-items: center;
+  font-weight: 600;
 }
 .custom-button:hover{
  opacity: 90%;
@@ -17,10 +18,9 @@
 
 .custom-button img {
 font-size: 20px;
+filter: brightness(0) invert(1);
 }
-.custom-button img {
-  filter: brightness(0) invert(1);
-}
+
 
 
 
