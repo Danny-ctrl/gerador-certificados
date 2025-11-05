@@ -1,4 +1,6 @@
-<button class="custom-button">
- <img src="Icon/plus.svg" alt="Ícone secundário" />
-  botão secundário
+<button [ngStyle]="disabled ? {'opacity':'50%'} : {}" class="custom-button">
+  @if(phClass){
+ <i class="ph {{phClass}}"></i >
+ }
+  {{textoBotao}}
 </button>
