@@ -9,5 +9,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './certificado.css'
 })
 export class Certificado {
+nome: any;
+atividades: any;
 
 }
