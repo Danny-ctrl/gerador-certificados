@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PrimaryButtonComponent } from "../../_components/primary-button/primary-button.component";
 import { SecondaryButton } from "../../_components/secondary-button/secondary-button";
-import { FormsModule, type NgModel } from '@angular/forms';
+import { FormsModule, type NgForm, type NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import type { Certificados } from '../certificados/certificados';
-import type { Certificado } from '../certificado/certificado';
+import type { Certificado } from '../../interfaces/certificado-interface';
 import  { CertificadoService } from '../../_services/certificado.service';
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Component({
   selector: 'app-certificado-form',
@@ -16,8 +18,9 @@ import  { CertificadoService } from '../../_services/certificado.service';
 export class CertificadoForm {
 
 constructor(private certificadoService: CertificadoService) { }
-
+@ViewChild('form') form!: NgForm;
  certificado: Certificado={
+    id: '',
     nome: '',
     atividades: [],
     dataEmissao:''
@@ -31,6 +34,9 @@ atividade:string='';
     return this.certificado.nome.length>0 && this.certificado.atividades.length>0;
   }
   adicionarAtividade(){
+    if(this.atividade.length===0){
+      return;
+    }
     this.certificado.atividades.push(this.atividade);
     this.atividade='';
   }
@@ -42,8 +48,10 @@ if(!this.formValido()){
   return;
 }
   this.certificado.dataEmissao=this.dataAtual();
+  this.certificado.id = uuidv4();
   this.certificadoService.adicionarCertificado(this.certificado);
-
+  this.certificado=this.estadoInicialCertificado();
+  this.form.resetForm();
 }
 dataAtual(){
  const dataAtual = new Date();
@@ -53,5 +61,13 @@ dataAtual(){
 
  const dataFormatada = `${dia}/${mes}/${ano}`;
  return dataFormatada;
+}
+estadoInicialCertificado(): Certificado {
+  return {
+    id: '',
+    nome: '',
+    atividades: [],
+    dataEmissao:''
+  };
 }
 }
