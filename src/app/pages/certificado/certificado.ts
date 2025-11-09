@@ -23,7 +23,7 @@ export class Certificado implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
       this.certificado = this.certificadoService.certificados.find(item => item.id === this.id);
-      console.log(this.certificado);
+
     })
   }
 }

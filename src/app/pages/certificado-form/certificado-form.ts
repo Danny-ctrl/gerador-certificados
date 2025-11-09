@@ -7,6 +7,7 @@ import type { Certificados } from '../certificados/certificados';
 import type { Certificado } from '../../interfaces/certificado-interface';
 import  { CertificadoService } from '../../_services/certificado.service';
 import { v4 as uuidv4 } from 'uuid';
+import  { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class CertificadoForm {
 
-constructor(private certificadoService: CertificadoService) { }
+constructor(private certificadoService: CertificadoService, private route: Router) { }
 @ViewChild('form') form!: NgForm;
  certificado: Certificado={
     id: '',
@@ -50,8 +51,9 @@ if(!this.formValido()){
   this.certificado.dataEmissao=this.dataAtual();
   this.certificado.id = uuidv4();
   this.certificadoService.adicionarCertificado(this.certificado);
-  this.certificado=this.estadoInicialCertificado();
-  this.form.resetForm();
+  this.route.navigate(['certificados', this.certificado.id]);
+  // this.certificado=this.estadoInicialCertificado();
+  // this.form.resetForm();
 }
 dataAtual(){
  const dataAtual = new Date();
