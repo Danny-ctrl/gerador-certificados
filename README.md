@@ -198,6 +198,66 @@ cypress/
 
 ---
 
+## 🧪 Testes Automatizados
+
+O projeto possui testes **End-to-End (E2E)** desenvolvidos com **Cypress** e **Cucumber**, utilizando a abordagem **BDD (Behavior Driven Development)**.
+
+Os cenários são escritos em **Gherkin**, permitindo que os requisitos sejam descritos de forma legível para desenvolvedores, analistas e pessoas de negócio.
+
+### Funcionalidades cobertas
+
+Atualmente os testes automatizados validam os seguintes cenários:
+
+- ✅ Geração de certificado com nome e uma atividade.
+- ✅ Validação do botão **Gerar certificado** quando não existe nenhuma atividade cadastrada.
+- ✅ Validação do botão quando o nome não foi informado.
+- ✅ Inclusão e remoção de atividades.
+- ✅ Geração de certificados utilizando diferentes conjuntos de dados (**Scenario Outline**).
+- ✅ Geração de certificados com dados aleatórios.
+- ✅ Geração em lote de múltiplos certificados aleatórios.
+
+### Exemplo de cenário em Gherkin
+
+```gherkin
+Funcionalidade: Geração de certificado
+  Cenário: Gerar certificado com nome e uma atividade
+    Dado que estou na página de geração de certificado
+    Quando preencho o nome "Maria Silva"
+    E adiciono a atividade "Curso de Angular"
+    E clico em "Gerar certificado"
+    Então devo ser redirecionado para a página do certificado
+```
+
+### Dados de teste
+
+Os testes utilizam a biblioteca **Faker.js** para geração de dados sintéticos aleatórios, evitando dependência de serviços externos e garantindo testes determinísticos e independentes de rede.
+
+### Como executar
+
+```bash
+# Em um terminal, suba a aplicação
+ng serve
+
+# Em outro terminal, abra o Cypress
+npx cypress open
+```
+
+Na interface do Cypress, selecione **E2E Testing**, escolha um navegador e clique no arquivo `.feature` desejado.
+
+Para rodar em modo headless (sem interface, ideal para CI):
+
+```bash
+npx cypress run
+```
+
+### Benefícios da abordagem BDD
+
+- Cenários legíveis para pessoas técnicas e não técnicas.
+- Documentação viva do comportamento esperado da aplicação.
+- Maior confiabilidade durante evoluções do sistema.
+- Facilidade para adicionar novos casos de teste.
+- Regressão automatizada das principais funcionalidades.
+
 # Licença
 
 Este projeto foi desenvolvido para fins de estudo e demonstração de conhecimentos em Angular, Cypress, Cucumber e automação de testes.
