@@ -1,0 +1,13 @@
+{
+  "cucumberautocomplete.steps": [
+    "cypress/e2e/**/*.steps.ts"
+  ],
+  "cucumberautocomplete.syncfeatures": true,
+  "cucumberautocomplete.strictGherkinCompletion": false,
+  "cucumberautocomplete.customParameters": [
+    {
+      "parameter": "{string}",
+      "value": "\"([^\"]*)\""
+    }
+  ]
+}
