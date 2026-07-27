@@ -1,96 +1,177 @@
-# Gerador de Certificados
+# 📜 Gerador de Certificados
 
-Aplicação desenvolvida em **Angular** para geração de certificados de forma simples e automatizada.
+Aplicação web desenvolvida em **Angular** para geração de certificados, permitindo cadastrar participantes, adicionar atividades, validar as informações e exportar o certificado em PDF.
 
-O sistema permite preencher os dados do participante, validar as informações e gerar o certificado em PDF para download.
+Além da implementação da aplicação, o projeto possui uma suíte de **testes automatizados End-to-End (E2E)** utilizando **Cypress** e **Cucumber**, aplicando a metodologia **BDD (Behavior Driven Development)** para validar os principais fluxos do sistema.
 
 ---
 
-# Tecnologias utilizadas
+# 🎯 Objetivo
+
+Este projeto foi desenvolvido com dois objetivos principais:
+
+- Desenvolver uma aplicação Angular para geração de certificados.
+- Demonstrar a implementação de testes automatizados E2E utilizando Cypress, Cucumber e Gherkin.
+
+---
+
+# ✨ Funcionalidades
 
 ## Aplicação
 
-- Angular 20
-- TypeScript
-- HTML5
-- CSS3
+- Cadastro do nome do participante.
+- Inclusão de uma ou mais atividades.
+- Remoção de atividades cadastradas.
+- Validação dos campos obrigatórios.
+- Geração dinâmica do certificado.
+- Visualização do certificado.
+- Exportação do certificado em PDF.
 
-## Testes
+## Testes Automatizados
 
-- Cypress
-- Cucumber (Gherkin)
-- @badeball/cypress-cucumber-preprocessor
-- @bahmutov/cypress-esbuild-preprocessor
+- Testes End-to-End (E2E).
+- Escrita dos cenários utilizando Gherkin.
+- Automação com Cypress.
+- Utilização de **Scenario Outline** para testes parametrizados.
+- Geração de dados aleatórios utilizando Faker.js.
+- Validação dos principais fluxos da aplicação.
 
 ---
 
-# Como executar o projeto
+# 🛠 Tecnologias Utilizadas
+
+| Tecnologia | Finalidade |
+|------------|------------|
+| Angular 20 | Framework Front-end |
+| TypeScript | Linguagem de programação |
+| HTML5 | Estrutura da aplicação |
+| CSS3 | Estilização |
+| jsPDF | Geração do PDF |
+| html2canvas | Conversão do certificado em imagem para exportação |
+| Cypress | Testes automatizados End-to-End |
+| Cucumber | Escrita dos cenários em Gherkin |
+| Faker.js | Geração de dados aleatórios para testes |
+
+---
+
+# 📂 Estrutura do Projeto
+
+```text
+src/
+├── app/
+│   ├── _components/
+│   ├── _models/
+│   ├── _services/
+│   └── app.ts
+├── assets/
+└── styles.css
+
+cypress/
+├── e2e/
+├── fixtures/
+└── support/
+
+cypress.config.ts
+```
+
+## Organização
+
+### `_components`
+
+Contém os componentes responsáveis pela interface da aplicação.
+
+### `_services`
+
+Centraliza as regras de negócio e serviços utilizados pela aplicação.
+
+### `_models`
+
+Armazena interfaces e modelos utilizados durante o desenvolvimento.
+
+### `assets`
+
+Arquivos estáticos utilizados pela aplicação.
+
+### `cypress`
+
+Contém toda a estrutura dos testes automatizados End-to-End.
+
+---
+
+# 🔄 Fluxo da Aplicação
+
+```text
+Usuário
+    │
+    ▼
+Informa o nome
+    │
+    ▼
+Adiciona as atividades
+    │
+    ▼
+Validação dos dados
+    │
+    ▼
+Geração do certificado
+    │
+    ▼
+Visualização
+    │
+    ▼
+Exportação em PDF
+```
+
+---
+
+# 🚀 Como Executar o Projeto
 
 ## Pré-requisitos
 
 - Node.js
 - npm
 
-## Instalação
-
-Clone o repositório:
+## Clone o repositório
 
 ```bash
 git clone https://github.com/Danny-ctrl/gerador-certificados.git
 ```
 
-Acesse a pasta do projeto:
+## Acesse a pasta do projeto
 
 ```bash
 cd gerador-certificados
 ```
 
-Instale as dependências:
+## Instale as dependências
 
 ```bash
 npm install
 ```
 
-Inicie a aplicação:
+## Execute a aplicação
 
 ```bash
 ng serve
 ```
 
-A aplicação ficará disponível em:
+A aplicação estará disponível em:
 
-```
+```text
 http://localhost:4200
 ```
 
 ---
 
-# Testes E2E com Cucumber (Gherkin) + Cypress
+# 🧪 Testes Automatizados
 
-Este projeto utiliza **BDD (Behavior Driven Development)** para os testes end-to-end (E2E), combinando **Cypress** com **Cucumber**, utilizando a linguagem **Gherkin**.
+Para garantir a qualidade da aplicação, foi implementada uma suíte de testes **End-to-End (E2E)** utilizando **Cypress** e **Cucumber**.
 
-## O que é BDD com Gherkin?
+Os cenários são escritos em **Gherkin**, permitindo descrever o comportamento esperado da aplicação de forma legível para desenvolvedores, analistas e demais envolvidos no projeto.
 
-Gherkin é uma linguagem simples e estruturada para descrever o comportamento esperado do sistema de forma legível tanto para pessoas técnicas quanto para pessoas de negócio.
+Essa abordagem segue os princípios do **BDD (Behavior Driven Development)**, onde os requisitos funcionais são transformados em cenários executáveis.
 
-Os arquivos `.feature` funcionam como documentação viva da aplicação e também como entrada para a automação dos testes.
-
-## Palavras-chave
-
-| Palavra-chave | Significado |
-|---------------|------------|
-| **Feature** | Funcionalidade |
-| **Background** | Contexto comum |
-| **Scenario** | Cenário de teste |
-| **Scenario Outline** | Cenário parametrizado |
-| **Examples** | Dados utilizados pelo Scenario Outline |
-| **Given** | Contexto inicial |
-| **When** | Ação realizada |
-| **Then** | Resultado esperado |
-
----
-
-# Estrutura dos testes
+## Estrutura dos testes
 
 ```text
 cypress/
@@ -107,11 +188,41 @@ cypress.config.ts
 
 ---
 
-# Executando os testes
+# ✅ Cobertura dos Testes
 
-## Abrir o Cypress
+Os testes automatizados validam os principais fluxos da aplicação:
 
-Com a aplicação em execução:
+- ✅ Geração de certificado com nome e uma atividade.
+- ✅ Validação do botão **Gerar Certificado** quando nenhuma atividade foi adicionada.
+- ✅ Validação da obrigatoriedade do nome do participante.
+- ✅ Inclusão de atividades.
+- ✅ Remoção de atividades.
+- ✅ Geração de certificados utilizando diferentes conjuntos de dados (**Scenario Outline**).
+- ✅ Geração de certificados utilizando dados aleatórios com **Faker.js**.
+- ✅ Geração de múltiplos certificados em sequência.
+
+---
+
+# 📝 Exemplo de Cenário BDD
+
+```gherkin
+Funcionalidade: Geração de certificado
+
+  Cenário: Gerar certificado com nome e uma atividade
+    Dado que estou na página de geração de certificado
+    Quando preencho o nome "Maria Silva"
+    E adiciono a atividade "Curso de Angular"
+    E clico em "Gerar certificado"
+    Então devo ser redirecionado para a página do certificado
+```
+
+---
+
+# ▶️ Executando os Testes
+
+Com a aplicação em execução, abra outro terminal.
+
+## Interface gráfica
 
 ```bash
 npx cypress open
@@ -119,7 +230,7 @@ npx cypress open
 
 Selecione **E2E Testing**, escolha um navegador e execute o arquivo `.feature`.
 
-## Executar em modo Headless
+## Modo Headless
 
 Ideal para integração contínua (CI):
 
@@ -129,135 +240,47 @@ npx cypress run
 
 ---
 
-# Como criar um novo teste
+# ➕ Como Criar um Novo Cenário
 
-1. Crie um arquivo `.feature` dentro de `cypress/e2e/`.
-2. Crie uma pasta com o mesmo nome do cenário.
-3. Dentro dela, crie um arquivo `.steps.ts`.
-4. Implemente os passos utilizando `Given`, `When` e `Then`.
-5. Prefira seletores estáveis (`id` ou `data-cy`).
-
-## Exemplo de Feature
-
-```gherkin
-Feature: Gerar certificado
-
-  Scenario: Gerar certificado com sucesso
-    Given que estou na página inicial
-    When realizo uma ação
-    Then devo visualizar o resultado esperado
-```
-
-## Exemplo de Step Definition
-
-```typescript
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-
-Given("que estou na página inicial", () => {
-  cy.visit("/");
-});
-
-When("realizo uma ação", () => {
-  // ação do teste
-});
-
-Then("devo visualizar o resultado esperado", () => {
-  // validação
-});
-```
+1. Crie um arquivo `.feature` em `cypress/e2e`.
+2. Descreva o comportamento esperado utilizando Gherkin.
+3. Crie o arquivo `.steps.ts` responsável pela implementação dos passos.
+4. Utilize seletores estáveis (`id` ou `data-cy`).
+5. Reutilize Step Definitions sempre que possível.
 
 ---
 
-# Boas práticas
+# 📋 Boas Práticas Adotadas
 
-- Utilize seletores por `id` ou `data-cy`.
-- Escreva cenários do ponto de vista do usuário.
-- Evite duplicação de Step Definitions.
-- Mantenha os arquivos `.feature` como documentação viva do comportamento da aplicação.
-- Escreva cenários pequenos, independentes e fáceis de manter.
-
----
-
-# Estrutura do projeto
-
-```text
-src/
-├── app/
-│   ├── _components/
-│   ├── _services/
-│   ├── _models/
-│   └── app.ts
-├── assets/
-└── styles.css
-
-cypress/
-├── e2e/
-├── fixtures/
-└── support/
-```
+- Organização do projeto seguindo a arquitetura padrão do Angular.
+- Separação das responsabilidades entre componentes, serviços e modelos.
+- Aplicação da metodologia BDD para especificação dos requisitos.
+- Testes escritos do ponto de vista do usuário.
+- Reutilização de Step Definitions.
+- Utilização de dados dinâmicos para ampliar a cobertura dos testes.
+- Utilização de seletores estáveis (`id` e `data-cy`).
+- Cenários independentes e de fácil manutenção.
 
 ---
 
-## 🧪 Testes Automatizados
+# 🚀 Melhorias Futuras
 
-O projeto possui testes **End-to-End (E2E)** desenvolvidos com **Cypress** e **Cucumber**, utilizando a abordagem **BDD (Behavior Driven Development)**.
+- Persistência dos certificados gerados.
+- Histórico de certificados emitidos.
+- Personalização de modelos de certificados.
+- Inclusão de QR Code para validação.
+- Assinatura digital.
+- Pipeline de Integração Contínua (CI) para execução automática dos testes.
 
-Os cenários são escritos em **Gherkin**, permitindo que os requisitos sejam descritos de forma legível para desenvolvedores, analistas e pessoas de negócio.
+---
 
-### Funcionalidades cobertas
+# 📄 Licença
 
-Atualmente os testes automatizados validam os seguintes cenários:
+Este projeto foi desenvolvido para fins de estudo e demonstração de conhecimentos em:
 
-- ✅ Geração de certificado com nome e uma atividade.
-- ✅ Validação do botão **Gerar certificado** quando não existe nenhuma atividade cadastrada.
-- ✅ Validação do botão quando o nome não foi informado.
-- ✅ Inclusão e remoção de atividades.
-- ✅ Geração de certificados utilizando diferentes conjuntos de dados (**Scenario Outline**).
-- ✅ Geração de certificados com dados aleatórios.
-- ✅ Geração em lote de múltiplos certificados aleatórios.
-
-### Exemplo de cenário em Gherkin
-
-```gherkin
-Funcionalidade: Geração de certificado
-  Cenário: Gerar certificado com nome e uma atividade
-    Dado que estou na página de geração de certificado
-    Quando preencho o nome "Maria Silva"
-    E adiciono a atividade "Curso de Angular"
-    E clico em "Gerar certificado"
-    Então devo ser redirecionado para a página do certificado
-```
-
-### Dados de teste
-
-Os testes utilizam a biblioteca **Faker.js** para geração de dados sintéticos aleatórios, evitando dependência de serviços externos e garantindo testes determinísticos e independentes de rede.
-
-### Como executar
-
-```bash
-# Em um terminal, suba a aplicação
-ng serve
-
-# Em outro terminal, abra o Cypress
-npx cypress open
-```
-
-Na interface do Cypress, selecione **E2E Testing**, escolha um navegador e clique no arquivo `.feature` desejado.
-
-Para rodar em modo headless (sem interface, ideal para CI):
-
-```bash
-npx cypress run
-```
-
-### Benefícios da abordagem BDD
-
-- Cenários legíveis para pessoas técnicas e não técnicas.
-- Documentação viva do comportamento esperado da aplicação.
-- Maior confiabilidade durante evoluções do sistema.
-- Facilidade para adicionar novos casos de teste.
-- Regressão automatizada das principais funcionalidades.
-
-# Licença
-
-Este projeto foi desenvolvido para fins de estudo e demonstração de conhecimentos em Angular, Cypress, Cucumber e automação de testes.
+- Angular
+- TypeScript
+- Cypress
+- Cucumber
+- Behavior Driven Development (BDD)
+- Automação de Testes End-to-End (E2E)
